@@ -1,0 +1,5 @@
+package co.simplon.mastershopping.entities;
+
+public class Product {
+
+}

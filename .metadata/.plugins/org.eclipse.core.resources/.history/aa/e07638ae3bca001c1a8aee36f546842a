@@ -1,0 +1,5 @@
+package co.simplon.mastershopping.services;
+
+public class ProductServiceImpl {
+
+}
