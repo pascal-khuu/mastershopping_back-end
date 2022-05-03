@@ -1,6 +1,6 @@
 package co.simplon.mastershopping.dtos;
 
-public interface User {
+public interface UserDto {
 
 	String getUserName();
 	String getPassword();

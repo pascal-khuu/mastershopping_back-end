@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.simplon.mastershopping.dtos.User;
+import co.simplon.mastershopping.dtos.UserDto;
 import co.simplon.mastershopping.dtos.UserLogin;
 import co.simplon.mastershopping.services.UserService;
 
@@ -31,7 +31,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/users-datas")
-	public List<User> getUsersUserNameAndPassword() {
+	public List<UserDto> getUsersUserNameAndPassword() {
 		return service.getUsersUserNameAndPassword();
 	}
 	

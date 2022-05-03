@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Table (name ="USERS")
-public class Users {
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,9 @@ public class Users {
 	
 	@ManyToOne
 	@JoinColumn (name="roles_id")
-	private Roles role;
+	private Role role;
 	
-	public Users() {
+	public User() {
 		
 	}
 
@@ -55,11 +55,11 @@ public class Users {
 		this.password = password;
 	}
 
-	public Roles getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(Roles role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
