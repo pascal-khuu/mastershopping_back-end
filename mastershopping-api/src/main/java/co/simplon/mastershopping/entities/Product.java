@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="products")
+@Table (name="PRODUCTS")
 public class Product {
 
 	@Id
@@ -93,6 +93,12 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", productName=" + productName + ", brand=" + brand + ", price=" + price
+				+ ", size=" + size + ", fabrics=" + fabrics + ", category=" + category + "]";
 	}
 	
 	
