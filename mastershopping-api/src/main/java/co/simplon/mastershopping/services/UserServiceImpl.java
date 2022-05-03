@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import co.simplon.mastershopping.dtos.UserDto;
+
 import co.simplon.mastershopping.dtos.UserLogin;
 import co.simplon.mastershopping.entities.User;
 import co.simplon.mastershopping.repositories.UserRepository;
@@ -19,15 +19,14 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public void userLogin(UserLogin user) {
-		User entity =new User();
+		
+		String userName = user.getUserName();
+		String password = user.getPassword();
+		
+		repository.findByUserNameAndPassword( userName,  password);
 		
 		
 	}
 
-	@Override
-	public List<UserDto> getUsersUserNameAndPassword() {
-		
-		return repository.findAllProjectedBy(UserDto.class);
-	}
-
+	
 }
