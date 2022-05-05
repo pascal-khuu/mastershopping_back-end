@@ -4,33 +4,43 @@
 
 CREATE TABLE CATEGORIES (
 	id SERIAL PRIMARY KEY,
-	category_name varchar (30) NOT NULL
+	category_name VARCHAR (30) NOT NULL
 	
 );
 
+CREATE TABLE BRANDS (
+	id SERIAL PRIMARY KEY,
+	brand_name VARCHAR(30) NOT NULL
+);
+
+
+
 CREATE TABLE PRODUCTS (
 	id SERIAL PRIMARY KEY,
-	product_name varchar (30) NOT NULL,
-	brand varchar(30) NOT NULL,
+	product_name VARCHAR (30) NOT NULL,
 	price DECIMAL NOT NULL,
-	size varchar (30) NOT NULL,
-	fabrics varchar (30) NOT NULL,
+	fabrics VARCHAR (30) NOT NULL,
+	number_stock INTEGER NOT NULL,
 	categories_id INTEGER NOT NULL,
+	brands_id INTEGER NOT NULL,
 	CONSTRAINT fk_categories_id
     FOREIGN KEY (categories_id)
-    REFERENCES categories(id)
+    REFERENCES categories(id),
+    CONSTRAINT fk_brands_id
+    FOREIGN KEY (brands_id)
+    REFERENCES brands(id)
 );
 
 CREATE TABLE ROLES (
 	id SERIAL PRIMARY KEY,
-	role_name varchar(30) NOT NULL
+	role_name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE USERS (
 	id SERIAL PRIMARY KEY,
-	user_name varchar (30) NOT NULL,
-	password varchar(60) NOT NULL,
-	roles_id INTEGER NOT NULL,
+	user_name VARCHAR (30) NOT NULL,
+	password VARCHAR(60) NOT NULL,
+	roles_id INTEGER,
 	CONSTRAINT fk_roles_id
 	FOREIGN KEY (roles_id)
 	REFERENCES roles(id)
