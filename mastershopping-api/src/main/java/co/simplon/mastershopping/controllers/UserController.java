@@ -45,6 +45,11 @@ public class UserController {
 		
 	}
 	
+	@PostMapping ("/sign-up")
+	public void create (@RequestBody UserLogin inputs) {
+		 service.create(inputs);
+	}
+	
 	
 
 }

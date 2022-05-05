@@ -21,6 +21,10 @@ public interface UserService {
 
 	
 
+	void create(UserLogin inputs);
+
+	
+
 	
 
 }
