@@ -7,7 +7,7 @@ public class UserLogin {
 
 	@NotNull
 	@NotBlank
-	private String userName;
+	private String username;
 	
 	@NotNull
 	@NotBlank
@@ -18,11 +18,11 @@ public class UserLogin {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 
 	public String getPassword() {
@@ -35,7 +35,7 @@ public class UserLogin {
 
 	@Override
 	public String toString() {
-		return "UserLogin [userName=" + userName + ", password=" + password + "]";
+		return "UserLogin [userName=" + username + ", password=" + password + "]";
 	}
 	
 	

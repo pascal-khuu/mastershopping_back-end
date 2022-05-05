@@ -18,7 +18,7 @@ public class User {
 	private Long Id;
 	
 	@Column (name = "user_name")
-	private String userName;
+	private String username;
 	
 	@Column (name= "password")
 	private String password;
@@ -40,11 +40,11 @@ public class User {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -65,7 +65,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "Users [Id=" + Id + ", userName=" + userName + ", password=" + password + ", role=" + role + "]";
+		return "Users [Id=" + Id + ", userName=" + username + ", password=" + password + ", role=" + role + "]";
 	}
 	
 	

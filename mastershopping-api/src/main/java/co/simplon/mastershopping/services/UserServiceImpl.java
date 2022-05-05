@@ -1,6 +1,7 @@
 package co.simplon.mastershopping.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
 
@@ -18,14 +19,20 @@ public class UserServiceImpl implements UserService {
 		this.repository=repository;
 	}
 	@Override
-	public void userLogin(UserLogin user) {
+	public User userLogin(UserLogin user) {
 		
-		String userName = user.getUserName();
-		String password = user.getPassword();
-		
-		repository.findByUserNameAndPassword( userName,  password);
+		String username = user.getUserName();
 		
 		
+		return repository.findByUsername( username);
+		
+		
+	}
+	@Override
+	public Object signIn(UserLogin inputs) {
+		String username= inputs.getUserName();
+		User user =repository.findByUsernameIgnoreCase(username).orElseThrow( () -> new NoSuchElementException());
+		return user;
 	}
 
 	
