@@ -15,11 +15,8 @@ import co.simplon.mastershopping.entities.User;
 
 public interface UserService {
 
-	User userLogin( UserLogin user);
 
 	Object signIn(UserLogin inputs);
-
-	
 
 	void create(UserLogin inputs);
 

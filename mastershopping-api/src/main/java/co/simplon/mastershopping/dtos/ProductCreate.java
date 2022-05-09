@@ -29,6 +29,12 @@ public class ProductCreate {
 	@NotNull
 	private Long mainCategoryId;
 	
+	@NotNull
+	private Long mainBrandId;
+	
+	@NotNull
+	private Long mainSizeId;
+	
 	public ProductCreate() {
 		
 	}
@@ -80,5 +86,24 @@ public class ProductCreate {
 	public void setMainCategoryId(Long mainCategoryId) {
 		this.mainCategoryId = mainCategoryId;
 	}
+
+	public Long getMainBrandId() {
+		return mainBrandId;
+	}
+
+	public void setMainBrandId(Long mainBrandId) {
+		this.mainBrandId = mainBrandId;
+	}
+
+	public Long getMainSizeId() {
+		return mainSizeId;
+	}
+
+	public void setMainSizeId(Long mainSizeId) {
+		this.mainSizeId = mainSizeId;
+	}
+	
+	
+	
 	
 }

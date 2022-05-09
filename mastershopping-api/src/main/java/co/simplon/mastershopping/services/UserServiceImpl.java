@@ -25,24 +25,15 @@ public class UserServiceImpl implements UserService {
 	}
 	 public void create (UserLogin inputs){
 	 User user = new User();
-	 user.setUserName(inputs.getUserName());
+	 user.setUsername(inputs.getUsername());
 	 String encoded = encoder.encode(inputs.getPassword());
 	 user.setPassword(encoded);
 	repository.save(user);
 	}
-	@Override
-	public User userLogin(UserLogin user) {
-		
-		String username = user.getUserName();
-		
-		
-		return repository.findByUsername( username);
-		
-		
-	}
+	
 	@Override
 	public Object signIn(UserLogin inputs) {
-		String username= inputs.getUserName();
+		String username= inputs.getUsername();
 		User user =repository.findByUsernameIgnoreCase(username).orElseThrow( () -> new BadCredentialsException(username));
 		String password = inputs.getPassword();
 		if (!encoder.matches(password, user.getPassword())) {

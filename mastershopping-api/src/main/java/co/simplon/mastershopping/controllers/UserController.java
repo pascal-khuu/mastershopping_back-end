@@ -29,15 +29,6 @@ public class UserController {
 	}
 	
 	
-	
-	@PostMapping ("/login")
-	public User userLogin(@Valid @RequestBody UserLogin inputs) {
-		//User entity = service.userLogin(user);
-		//System.out.println(entity);
-		return service.userLogin(inputs);
-		
-	}
-	
 	@PostMapping ("/sign-in")
 	public Object signIn( @RequestBody @Valid UserLogin inputs) {
 		

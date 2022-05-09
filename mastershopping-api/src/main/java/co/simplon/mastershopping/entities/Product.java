@@ -20,14 +20,14 @@ public class Product {
 	@Column(name="product_name")
 	private String productName;
 	
-	@Column (name="brand")
-	private String brand;
+//	@Column (name="brand")
+//	private String brand;
 	
 	@Column (name="price")
 	private float price;
 	
-	@Column (name="size")
-	private String size;
+//	@Column (name="size")
+//	private String size;
 	
 	@Column (name="fabrics")
 	private String fabrics;
@@ -35,6 +35,14 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="categories_id")
 	private Category category;
+	
+	@ManyToOne
+	@JoinColumn(name="brand_id")
+	private Brand brand;
+	
+	@ManyToOne
+	@JoinColumn(name="size_id")
+	private Size size;
 
 	
 	public Product() {
@@ -56,13 +64,7 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+	
 
 	public float getPrice() {
 		return price;
@@ -72,13 +74,7 @@ public class Product {
 		this.price = price;
 	}
 
-	public String getSize() {
-		return size;
-	}
-
-	public void setSize(String size) {
-		this.size = size;
-	}
+	
 	
 		
 	public String getFabrics() {
@@ -87,6 +83,20 @@ public class Product {
 	public void setFabrics(String fabrics) {
 		this.fabrics = fabrics;
 	}
+	
+	
+	public Brand getBrand() {
+		return brand;
+	}
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+	public Size getSize() {
+		return size;
+	}
+	public void setSize(Size size) {
+		this.size = size;
+	}
 	public Category getCategory() {
 		return category;
 	}
@@ -94,12 +104,16 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", productName=" + productName + ", brand=" + brand + ", price=" + price
-				+ ", size=" + size + ", fabrics=" + fabrics + ", category=" + category + "]";
+		return "Product [id=" + id + ", productName=" + productName + ", price=" + price + ", fabrics=" + fabrics
+				+ ", category=" + category + ", brand=" + brand + ", size=" + size + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 }
