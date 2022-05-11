@@ -11,21 +11,17 @@ public class ProductCreate {
 	String productName;
 	
 	@NotNull
-	@NotBlank
-	String brand;
-	
-	@NotNull
 	@Positive
 	Float price;
 	
 	@NotNull
 	@NotBlank
-	String size;
-	
-	@NotNull
-	@NotBlank
 	String fabrics;
 	
+	@NotNull
+	@Positive
+	Float numberStock;
+		
 	@NotNull
 	private Long mainCategoryId;
 	
@@ -47,13 +43,11 @@ public class ProductCreate {
 		this.productName = productName;
 	}
 
-	public String getBrand() {
-		return brand;
-	}
+	
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+	
+
+	
 
 	public Float getPrice() {
 		return price;
@@ -61,14 +55,6 @@ public class ProductCreate {
 
 	public void setPrice(Float price) {
 		this.price = price;
-	}
-
-	public String getSize() {
-		return size;
-	}
-
-	public void setSize(String size) {
-		this.size = size;
 	}
 
 	public String getFabrics() {
@@ -101,6 +87,14 @@ public class ProductCreate {
 
 	public void setMainSizeId(Long mainSizeId) {
 		this.mainSizeId = mainSizeId;
+	}
+
+	public Float getNumberStock() {
+		return numberStock;
+	}
+
+	public void setNumberStock(Float numberStock) {
+		this.numberStock = numberStock;
 	}
 	
 	

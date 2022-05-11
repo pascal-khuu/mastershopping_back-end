@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties.Jwt;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import co.simplon.mastershopping.dtos.UserLogin;
 import co.simplon.mastershopping.entities.User;
 import co.simplon.mastershopping.services.UserService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/users")
 public class UserController {

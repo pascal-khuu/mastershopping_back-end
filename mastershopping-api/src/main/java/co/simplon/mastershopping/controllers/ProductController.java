@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.mastershopping.dtos.ProductCreate;
-import co.simplon.mastershopping.dtos.ProductName;
 import co.simplon.mastershopping.entities.Product;
 import co.simplon.mastershopping.services.ProductService;
 
@@ -24,10 +23,6 @@ public class ProductController {
 		this.service=service;
 	}
 	
-	@GetMapping
-	public List<ProductName> getProductNames(){
-		return service.getProductNames();
-	}
 	
 	@PostMapping("/create")
 	public void createProduct(@Valid @RequestBody ProductCreate product) {

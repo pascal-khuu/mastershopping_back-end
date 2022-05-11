@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import co.simplon.mastershopping.dtos.ProductCreate;
-import co.simplon.mastershopping.dtos.ProductName;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
 import co.simplon.mastershopping.entities.Product;
@@ -29,25 +28,25 @@ public class ProductServiceImpl implements ProductService {
 		this.sizes=sizes;
 	}
 	
-	@Override
-	public List<ProductName> getProductNames() {
-		return products.findAllProjectedBy(ProductName.class);
-	}
+	
 
 	@Override
 	public void createProduct(ProductCreate dto) {
 		Product entity = new Product();
 		entity.setProductName(dto.getProductName());
+		entity.setPrice(dto.getPrice());
+		entity.setFabrics(dto.getFabrics());
+		entity.setNumberStock(dto.getNumberStock());
 		Long mainBrand=dto.getMainBrandId();
 		Brand brand = brands.findById(mainBrand).get();
 		entity.setBrand(brand);
 		Long mainSize = dto.getMainSizeId();
 		Size size =sizes.findById(mainSize).get();
 		entity.setSize(size);
-		entity.setFabrics(dto.getFabrics());
 		Long mainCategory=dto.getMainCategoryId();
 		Category category =categories.findById(mainCategory).get();
 		entity.setCategory(category);
+		System.out.println(entity);
 		
 		products.save(entity);
 		

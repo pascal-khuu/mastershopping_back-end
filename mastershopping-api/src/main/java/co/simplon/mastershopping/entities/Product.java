@@ -32,16 +32,19 @@ public class Product {
 	@Column (name="fabrics")
 	private String fabrics;
 	
+	@Column (name="number_stock")
+	private float numberStock;
+	
 	@ManyToOne
 	@JoinColumn(name="categories_id")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name="brand_id")
+	@JoinColumn(name="brands_id")
 	private Brand brand;
 	
 	@ManyToOne
-	@JoinColumn(name="size_id")
+	@JoinColumn(name="sizes_id")
 	private Size size;
 
 	
@@ -85,6 +88,12 @@ public class Product {
 	}
 	
 	
+	public float getNumberStock() {
+		return numberStock;
+	}
+	public void setNumberStock(float numberStock) {
+		this.numberStock = numberStock;
+	}
 	public Brand getBrand() {
 		return brand;
 	}
