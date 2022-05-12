@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 
 import com.auth0.jwt.algorithms.Algorithm;
 
@@ -41,8 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable().logout().disable()
 
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/users/**").permitAll().and().authorizeRequests().antMatchers("/products/**").permitAll()
-				.and().authorizeRequests().anyRequest().authenticated().and().oauth2ResourceServer();
+				.antMatchers("/users/**").permitAll().and().authorizeRequests().anyRequest().authenticated().and()
+				.oauth2ResourceServer().jwt();
 	}
 
 	@Bean
@@ -55,6 +57,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public JwtDecoder jwtDecoder() {
 		SecretKey secretKey = new SecretKeySpec(secret.getBytes(), "HMACSHA256");
 		return NimbusJwtDecoder.withSecretKey(secretKey).macAlgorithm(MacAlgorithm.HS256).build();
+	}
+
+	@Bean
+	public JwtAuthenticationConverter jwtAuthenticationConverter() {
+		JwtGrantedAuthoritiesConverter authoritiesConverter = new JwtGrantedAuthoritiesConverter();
+		authoritiesConverter.setAuthoritiesClaimName("roles");
+		authoritiesConverter.setAuthorityPrefix("");
+		JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
+		authenticationConverter.setJwtGrantedAuthoritiesConverter(authoritiesConverter);
+		return authenticationConverter;
 	}
 
 }

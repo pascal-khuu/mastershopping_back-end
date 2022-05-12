@@ -1,27 +1,14 @@
 package co.simplon.mastershopping.services;
 
-
-
-import java.util.List;
-
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties.Jwt;
-import org.springframework.stereotype.Service;
-
-
+import co.simplon.mastershopping.dtos.UserCreate;
 import co.simplon.mastershopping.dtos.UserLogin;
-import co.simplon.mastershopping.entities.User;
 
-
+import co.simplon.mastershopping.security.Jwt;
 
 public interface UserService {
 
+	Jwt signIn(UserLogin inputs);
 
-	Object signIn(UserLogin inputs);
-
-	void create(UserLogin inputs);
-
-	
-
-	
+	void create(UserCreate inputs);
 
 }

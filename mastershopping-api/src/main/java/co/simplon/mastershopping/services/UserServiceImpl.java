@@ -7,10 +7,12 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import co.simplon.mastershopping.dtos.UserCreate;
 import co.simplon.mastershopping.dtos.UserLogin;
 import co.simplon.mastershopping.entities.Role;
 import co.simplon.mastershopping.entities.User;
 import co.simplon.mastershopping.repositories.UserRepository;
+import co.simplon.mastershopping.security.Jwt;
 import co.simplon.mastershopping.security.JwtProvider;
 
 @Service
@@ -27,16 +29,8 @@ public class UserServiceImpl implements UserService {
 		this.provider = provider;
 	}
 
-	public void create(UserLogin inputs) {
-		User user = new User();
-		user.setUsername(inputs.getUsername());
-		String encoded = encoder.encode(inputs.getPassword());
-		user.setPassword(encoded);
-		repository.save(user);
-	}
-
 	@Override
-	public Object signIn(UserLogin inputs) {
+	public Jwt signIn(UserLogin inputs) {
 		String username = inputs.getUsername();
 		User user = repository.findByUsernameIgnoreCase(username)
 				.orElseThrow(() -> new BadCredentialsException(username));
@@ -50,6 +44,18 @@ public class UserServiceImpl implements UserService {
 			roles = List.of(role.getRoleName());
 		}
 		return provider.create(String.valueOf(user.getId()), roles);
+	}
+
+	@Override
+	public void create(UserCreate inputs) {
+		User user = new User();
+		user.setUsername(inputs.getUsername());
+		user.setFirstName(inputs.getFirstName());
+		user.setLastName(inputs.getLastName());
+		String encoded = encoder.encode(inputs.getPassword());
+		user.setPassword(encoded);
+		repository.save(user);
+
 	}
 
 }

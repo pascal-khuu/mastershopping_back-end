@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import co.simplon.mastershopping.dtos.UserCreate;
 import co.simplon.mastershopping.dtos.UserLogin;
 import co.simplon.mastershopping.entities.User;
 import co.simplon.mastershopping.services.UserService;
@@ -23,26 +23,23 @@ import co.simplon.mastershopping.services.UserService;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	
+
 	private final UserService service;
-	
-	public UserController (UserService  service) {
-		this.service=service;
+
+	public UserController(UserService service) {
+		this.service = service;
 	}
-	
-	
-	@PostMapping ("/sign-in")
-	public Object signIn( @RequestBody @Valid UserLogin inputs) {
-		
+
+	@PostMapping("/sign-in")
+	public Object signIn(@RequestBody @Valid UserLogin inputs) {
+
 		return service.signIn(inputs);
-		
+
 	}
-	
-	@PostMapping ("/sign-up")
-	public void create (@RequestBody UserLogin inputs) {
-		 service.create(inputs);
+
+	@PostMapping("/sign-up")
+	public void create(@RequestBody UserCreate inputs) {
+		service.create(inputs);
 	}
-	
-	
 
 }
