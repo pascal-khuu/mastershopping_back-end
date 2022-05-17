@@ -7,21 +7,21 @@ import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CustomWebMvcConfigurer implements WebMvcConfigurer{
+public class CustomWebMvcConfigurer implements WebMvcConfigurer {
 
 	@Value("${mastershopping.cors.allowed-origins}")
 	private String[] allowedOrigins;
-	
-	@Value("${mastershopping.cors.allowed-methods")
-	private String [] allowedMethods;
-	
+
+	@Value("${mastershopping.cors.allowed-methods}")
+	private String[] allowedMethods;
+
 	@Override
 	public void configurePathMatch(PathMatchConfigurer configurer) {
 		configurer.setUseTrailingSlashMatch(false);
 	}
-	
+
 	@Override
-	public void addCorsMappings (CorsRegistry registry) {
+	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**").allowedOrigins(allowedOrigins).allowedMethods(allowedMethods);
 	}
 }

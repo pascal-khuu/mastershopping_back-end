@@ -1,6 +1,7 @@
 package co.simplon.mastershopping.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,32 @@ public class ProductServiceImpl implements ProductService {
 
 		products.save(entity);
 
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		return products.findAll();
+	}
+
+	@Override
+	public List<Category> getCategories() {
+		return categories.findAll();
+	}
+
+	@Override
+	public List<Brand> getBrands() {
+		return brands.findAll();
+	}
+
+	@Override
+	public List<Size> getSizes() {
+		return sizes.findAll();
+	}
+
+	@Override
+	public Product updateProductById(Long id) {
+		// TODO Auto-generated method stub
+		return products.findById(id).get();
 	}
 
 }

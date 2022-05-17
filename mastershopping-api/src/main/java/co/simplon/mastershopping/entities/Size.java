@@ -8,14 +8,35 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SIZES")
+@Table(name = "SIZES")
 public class Size {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	
-	@Column (name="size_name")
+
+	@Column(name = "size_name")
 	private String sizeName;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public String getSizeName() {
+		return sizeName;
+	}
+
+	public void setSizeName(String sizeName) {
+		this.sizeName = sizeName;
+	}
+
+	@Override
+	public String toString() {
+		return "Size [Id=" + Id + ", sizeName=" + sizeName + "]";
+	}
 
 }

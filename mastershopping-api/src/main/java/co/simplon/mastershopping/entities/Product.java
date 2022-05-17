@@ -102,6 +102,14 @@ public class Product {
 		this.numberStock = numberStock;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	public Brand getBrand() {
 		return brand;
 	}
@@ -116,14 +124,6 @@ public class Product {
 
 	public void setSize(Size size) {
 		this.size = size;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 
 	@Override
