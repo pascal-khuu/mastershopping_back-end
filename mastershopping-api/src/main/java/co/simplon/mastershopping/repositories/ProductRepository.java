@@ -13,4 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	Optional<Product> findById(Long id);
 
 	<T> List<T> findAllProjectedBy(Class<T> type);
+
+	List<Product> findAllByOrderByProductNameAsc();
 }

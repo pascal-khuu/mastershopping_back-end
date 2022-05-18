@@ -20,14 +20,11 @@ public class Product {
 	@Column(name = "product_name")
 	private String productName;
 
-	@Column(name = "picture")
-	private String picture;
+	@Column(name = "picture_url")
+	private String pictureUrl;
 
 	@Column(name = "price")
 	private float price;
-
-	@Column(name = "fabrics")
-	private String fabrics;
 
 	@Column(name = "number_stock")
 	private float numberStock;
@@ -43,6 +40,10 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "sizes_id")
 	private Size size;
+
+	@ManyToOne
+	@JoinColumn(name = "fabrics_id")
+	private Fabrics fabrics;
 
 	public Product() {
 
@@ -64,12 +65,12 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getPictureUrl() {
+		return pictureUrl;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 	public float getPrice() {
@@ -80,11 +81,11 @@ public class Product {
 		this.price = price;
 	}
 
-	public String getFabrics() {
+	public Fabrics getFabrics() {
 		return fabrics;
 	}
 
-	public void setFabrics(String fabrics) {
+	public void setFabrics(Fabrics fabrics) {
 		this.fabrics = fabrics;
 	}
 
@@ -122,9 +123,9 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", productName=" + productName + ", picture=" + picture + ", price=" + price
-				+ ", fabrics=" + fabrics + ", numberStock=" + numberStock + ", category=" + category + ", brand="
-				+ brand + ", size=" + size + "]";
+		return "Product [id=" + id + ", productName=" + productName + ", pictureUrl=" + pictureUrl + ", price=" + price
+				+ ", numberStock=" + numberStock + ", category=" + category + ", brand=" + brand + ", size=" + size
+				+ ", fabrics=" + fabrics + "]";
 	}
 
 }

@@ -16,10 +16,6 @@ public class ProductUpdate {
 	Float price;
 
 	@NotNull
-	@NotBlank
-	String fabrics;
-
-	@NotNull
 	@Positive
 	Float numberStock;
 
@@ -31,6 +27,10 @@ public class ProductUpdate {
 
 	@NotNull
 	private Long mainSizeId;
+
+	@NotNull
+	@Positive
+	Long mainFabricsId;
 
 	public ProductUpdate() {
 
@@ -60,12 +60,12 @@ public class ProductUpdate {
 		this.price = price;
 	}
 
-	public String getFabrics() {
-		return fabrics;
+	public Long getMainFabricsId() {
+		return mainFabricsId;
 	}
 
-	public void setFabrics(String fabrics) {
-		this.fabrics = fabrics;
+	public void setMainFabricsId(Long mainFabricsId) {
+		this.mainFabricsId = mainFabricsId;
 	}
 
 	public Long getMainCategoryId() {

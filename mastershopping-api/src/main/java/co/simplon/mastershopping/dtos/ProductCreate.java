@@ -6,23 +6,22 @@ import javax.validation.constraints.Positive;
 
 public class ProductCreate {
 
-	String picture;
+	String pictureUrl;
 
 	@NotNull
 	@NotBlank
-	String productName;
+	private String productName;
 
 	@NotNull
 	@Positive
-	Float price;
+	private Float price;
 
 	@NotNull
-	@NotBlank
-	String fabrics;
+	private Long mainFabricsId;
 
 	@NotNull
 	@Positive
-	Float numberStock;
+	private Float numberStock;
 
 	@NotNull
 	private Long mainCategoryId;
@@ -45,12 +44,12 @@ public class ProductCreate {
 		this.productName = productName;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getPictureUrl() {
+		return pictureUrl;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 	public Float getPrice() {
@@ -61,12 +60,12 @@ public class ProductCreate {
 		this.price = price;
 	}
 
-	public String getFabrics() {
-		return fabrics;
+	public Long getMainFabricsId() {
+		return mainFabricsId;
 	}
 
-	public void setFabrics(String fabrics) {
-		this.fabrics = fabrics;
+	public void setMainFabricsId(Long mainFabricsId) {
+		this.mainFabricsId = mainFabricsId;
 	}
 
 	public Long getMainCategoryId() {

@@ -12,10 +12,12 @@ import co.simplon.mastershopping.dtos.ProductPageUpdate;
 import co.simplon.mastershopping.dtos.ProductUpdate;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
+import co.simplon.mastershopping.entities.Fabrics;
 import co.simplon.mastershopping.entities.Product;
 import co.simplon.mastershopping.entities.Size;
 import co.simplon.mastershopping.repositories.BrandRepository;
 import co.simplon.mastershopping.repositories.CategoryRepository;
+import co.simplon.mastershopping.repositories.FabricsRepository;
 import co.simplon.mastershopping.repositories.ProductRepository;
 import co.simplon.mastershopping.repositories.SizeRepository;
 
@@ -26,22 +28,26 @@ public class ProductServiceImpl implements ProductService {
 	private final CategoryRepository categories;
 	private final BrandRepository brands;
 	private final SizeRepository sizes;
+	private final FabricsRepository fabrics;
 
 	public ProductServiceImpl(ProductRepository products, CategoryRepository categories, BrandRepository brands,
-			SizeRepository sizes) {
+			SizeRepository sizes, FabricsRepository fabrics) {
 		this.products = products;
 		this.categories = categories;
 		this.brands = brands;
 		this.sizes = sizes;
+		this.fabrics = fabrics;
 	}
 
 	@Override
 	public void createProduct(ProductCreate dto) {
 		Product entity = new Product();
 		entity.setProductName(dto.getProductName());
-		entity.setPicture(dto.getPicture());
+		entity.setPictureUrl(dto.getPictureUrl());
 		entity.setPrice(dto.getPrice());
-		entity.setFabrics(dto.getFabrics());
+		Long mainFabrics = dto.getMainFabricsId();
+		Fabrics fabric = fabrics.findById(mainFabrics).get();
+		entity.setFabrics(fabric);
 		entity.setNumberStock(dto.getNumberStock());
 		Long mainBrand = dto.getMainBrandId();
 		Brand brand = brands.findById(mainBrand).get();
@@ -59,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getProducts() {
-		return products.findAll();
+		return products.findAllByOrderByProductNameAsc();
 	}
 
 	@Override
@@ -71,9 +77,11 @@ public class ProductServiceImpl implements ProductService {
 	public void updateProductById(Long id, @Valid ProductUpdate product) {
 		Product entity = products.findById(id).get();
 		entity.setProductName(product.getProductName());
-		entity.setPicture(product.getPicture());
+		entity.setPictureUrl(product.getPicture());
 		entity.setPrice(product.getPrice());
-		entity.setFabrics(product.getFabrics());
+		Long mainFabrics = product.getMainFabricsId();
+		Fabrics fabric = fabrics.findById(mainFabrics).get();
+		entity.setFabrics(fabric);
 		entity.setNumberStock(product.getNumberStock());
 		Long mainBrand = product.getMainBrandId();
 		Brand brand = brands.findById(mainBrand).get();

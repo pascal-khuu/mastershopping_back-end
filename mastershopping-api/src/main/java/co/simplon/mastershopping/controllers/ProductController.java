@@ -47,19 +47,19 @@ public class ProductController {
 		return service.getProductUpdate();
 	}
 
-	@PostMapping("/create")
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createProduct(@Valid @RequestBody ProductCreate product) {
 		service.createProduct(product);
 	}
 
-	@GetMapping("/byId/{id}")
+	@GetMapping("/{id}")
 	public Product updateProductById(@PathVariable("id") Long id) {
 		return service.updateProductById(id);
 
 	}
 
-	@PutMapping("updateProduct/{id}")
+	@PutMapping("/{id}")
 	public void updateProduct(@PathVariable Long id, @Valid @RequestBody ProductUpdate product) {
 		service.updateProductById(id, product);
 	}
