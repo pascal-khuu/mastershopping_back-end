@@ -23,14 +23,8 @@ public class Product {
 	@Column(name = "picture")
 	private String picture;
 
-//	@Column (name="brand")
-//	private String brand;
-
 	@Column(name = "price")
 	private float price;
-
-//	@Column (name="size")
-//	private String size;
 
 	@Column(name = "fabrics")
 	private String fabrics;

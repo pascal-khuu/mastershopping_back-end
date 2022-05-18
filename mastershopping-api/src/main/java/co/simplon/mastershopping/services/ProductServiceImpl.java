@@ -3,9 +3,13 @@ package co.simplon.mastershopping.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import co.simplon.mastershopping.dtos.ProductCreate;
+import co.simplon.mastershopping.dtos.ProductPageUpdate;
+import co.simplon.mastershopping.dtos.ProductUpdate;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
 import co.simplon.mastershopping.entities.Product;
@@ -48,7 +52,6 @@ public class ProductServiceImpl implements ProductService {
 		Long mainCategory = dto.getMainCategoryId();
 		Category category = categories.findById(mainCategory).get();
 		entity.setCategory(category);
-		System.out.println(entity);
 
 		products.save(entity);
 
@@ -60,24 +63,34 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Category> getCategories() {
-		return categories.findAll();
-	}
-
-	@Override
-	public List<Brand> getBrands() {
-		return brands.findAll();
-	}
-
-	@Override
-	public List<Size> getSizes() {
-		return sizes.findAll();
-	}
-
-	@Override
 	public Product updateProductById(Long id) {
-		// TODO Auto-generated method stub
 		return products.findById(id).get();
+	}
+
+	@Override
+	public void updateProductById(Long id, @Valid ProductUpdate product) {
+		Product entity = products.findById(id).get();
+		entity.setProductName(product.getProductName());
+		entity.setPicture(product.getPicture());
+		entity.setPrice(product.getPrice());
+		entity.setFabrics(product.getFabrics());
+		entity.setNumberStock(product.getNumberStock());
+		Long mainBrand = product.getMainBrandId();
+		Brand brand = brands.findById(mainBrand).get();
+		entity.setBrand(brand);
+		Long mainSize = product.getMainSizeId();
+		Size size = sizes.findById(mainSize).get();
+		entity.setSize(size);
+		Long mainCategory = product.getMainCategoryId();
+		Category category = categories.findById(mainCategory).get();
+		entity.setCategory(category);
+		products.save(entity);
+
+	}
+
+	@Override
+	public List<ProductPageUpdate> getProductUpdate() {
+		return products.findAllProjectedBy(ProductPageUpdate.class);
 	}
 
 }

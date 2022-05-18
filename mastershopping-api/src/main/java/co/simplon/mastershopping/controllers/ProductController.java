@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.mastershopping.dtos.ProductCreate;
+import co.simplon.mastershopping.dtos.ProductPageUpdate;
+import co.simplon.mastershopping.dtos.ProductUpdate;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
 import co.simplon.mastershopping.entities.Product;
@@ -38,26 +42,13 @@ public class ProductController {
 
 	}
 
-	@GetMapping("/categories")
-	public List<Category> getCategories() {
-		return service.getCategories();
-	}
-
-	@GetMapping("/brands")
-	public List<Brand> getBrands() {
-
-		return service.getBrands();
-
-	}
-
-	@GetMapping("/sizes")
-	public List<Size> getSizes() {
-
-		return service.getSizes();
-
+	@GetMapping("/viewProductUpdate")
+	public List<ProductPageUpdate> getProductUpdate() {
+		return service.getProductUpdate();
 	}
 
 	@PostMapping("/create")
+	@ResponseStatus(HttpStatus.CREATED)
 	public void createProduct(@Valid @RequestBody ProductCreate product) {
 		service.createProduct(product);
 	}
@@ -67,4 +58,10 @@ public class ProductController {
 		return service.updateProductById(id);
 
 	}
+
+	@PutMapping("updateProduct/{id}")
+	public void updateProduct(@PathVariable Long id, @Valid @RequestBody ProductUpdate product) {
+		service.updateProductById(id, product);
+	}
+
 }

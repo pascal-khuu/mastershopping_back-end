@@ -38,6 +38,7 @@ public class UserController {
 	}
 
 	@PostMapping("/sign-up")
+	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@RequestBody UserCreate inputs) {
 		service.create(inputs);
 	}
