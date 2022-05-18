@@ -2,34 +2,38 @@
 
 
 
-CREATE TABLE CATEGORIES (
+CREATE TABLE categories (
 	id SERIAL PRIMARY KEY,
 	category_name VARCHAR (255) UNIQUE NOT NULL
 	
 );
 
-CREATE TABLE BRANDS (
+CREATE TABLE brands (
 	id SERIAL PRIMARY KEY,
 	brand_name VARCHAR(255) UNIQUE NOT NULL
 );
 
-CREATE TABLE SIZES (
+CREATE TABLE sizes (
 	id SERIAL PRIMARY KEY,
 	size_name VARCHAR (255) UNIQUE NOT NULL
 );
 
+CREATE TABLE fabrics (
+	id SERIAL PRIMARY KEY,
+	fabrics_name VARCHAR (255) UNIQUE NOT NULL
+);
 
 
-CREATE TABLE PRODUCTS (
+CREATE TABLE products (
 	id SERIAL PRIMARY KEY,
 	product_name VARCHAR (255) UNIQUE NOT NULL,
-	picture VARCHAR (255),
+	picture_url VARCHAR (255),
 	price FLOAT NOT NULL,
-	fabrics VARCHAR (255) NOT NULL,
 	number_stock INTEGER NOT NULL,
 	categories_id INTEGER NOT NULL,
 	brands_id INTEGER NOT NULL,
 	sizes_id INTEGER NOT NULL,
+	fabrics_id INTEGER NOT NULL,
 	CONSTRAINT fk_categories_id
     FOREIGN KEY (categories_id)
     REFERENCES categories(id),
@@ -38,16 +42,19 @@ CREATE TABLE PRODUCTS (
     REFERENCES brands(id),
      CONSTRAINT fk_sizes_id
     FOREIGN KEY (sizes_id)
-    REFERENCES sizes(id)
+    REFERENCES sizes(id),
+     CONSTRAINT fk_fabrics_id
+    FOREIGN KEY (fabrics_id)
+    REFERENCES fabrics(id)
     
 );
 
-CREATE TABLE ROLES (
+CREATE TABLE roles (
 	id SERIAL PRIMARY KEY,
 	role_name VARCHAR(50) UNIQUE NOT NULL
 );
 
-CREATE TABLE USERS (
+CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	user_name VARCHAR (255) NOT NULL,
 	first_name VARCHAR (255) NOT NULL,
