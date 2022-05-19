@@ -9,13 +9,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "FABRICS")
-public class Fabrics {
+public class Fabric {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 
 	@Column(name = "fabrics_name")
-	private String fabricsName;
+	private String fabricName;
 
 	public Long getId() {
 		return Id;
@@ -25,17 +25,17 @@ public class Fabrics {
 		Id = id;
 	}
 
-	public String getFabricsName() {
-		return fabricsName;
+	public String getFabricName() {
+		return fabricName;
 	}
 
-	public void setFabricsName(String fabricsName) {
-		this.fabricsName = fabricsName;
+	public void setFabricName(String fabricName) {
+		this.fabricName = fabricName;
 	}
 
 	@Override
 	public String toString() {
-		return "Fabrics [Id=" + Id + ", fabricsName=" + fabricsName + "]";
+		return "Fabric [Id=" + Id + ", fabricName=" + fabricName + "]";
 	}
 
 }

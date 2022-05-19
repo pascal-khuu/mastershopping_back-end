@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.simplon.mastershopping.entities.Fabrics;
-import co.simplon.mastershopping.repositories.FabricsRepository;
-import co.simplon.mastershopping.services.FabricsService;
+import co.simplon.mastershopping.entities.Fabric;
+import co.simplon.mastershopping.repositories.FabricRepository;
+import co.simplon.mastershopping.services.FabricService;
 
 @RestController
 @RequestMapping("/fabrics")
-public class FabricsController {
+public class FabricController {
 
-	private final FabricsService service;
+	private final FabricService service;
 
-	public FabricsController(FabricsService service) {
+	public FabricController(FabricService service) {
 		this.service = service;
 	}
 
 	@GetMapping
-	public List<Fabrics> getFabrics() {
+	public List<Fabric> getFabrics() {
 		return service.getFabrics();
 
 	}

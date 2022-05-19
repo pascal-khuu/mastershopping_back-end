@@ -30,7 +30,7 @@ public class ProductUpdate {
 
 	@NotNull
 	@Positive
-	Long mainFabricsId;
+	Long mainFabricId;
 
 	public ProductUpdate() {
 
@@ -60,12 +60,12 @@ public class ProductUpdate {
 		this.price = price;
 	}
 
-	public Long getMainFabricsId() {
-		return mainFabricsId;
+	public Long getMainFabricId() {
+		return mainFabricId;
 	}
 
-	public void setMainFabricsId(Long mainFabricsId) {
-		this.mainFabricsId = mainFabricsId;
+	public void setMainFabricId(Long mainFabricId) {
+		this.mainFabricId = mainFabricId;
 	}
 
 	public Long getMainCategoryId() {

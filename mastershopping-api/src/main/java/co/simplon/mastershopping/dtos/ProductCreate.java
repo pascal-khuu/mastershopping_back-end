@@ -17,7 +17,7 @@ public class ProductCreate {
 	private Float price;
 
 	@NotNull
-	private Long mainFabricsId;
+	private Long mainFabricId;
 
 	@NotNull
 	@Positive
@@ -60,12 +60,12 @@ public class ProductCreate {
 		this.price = price;
 	}
 
-	public Long getMainFabricsId() {
-		return mainFabricsId;
+	public Long getMainFabricId() {
+		return mainFabricId;
 	}
 
-	public void setMainFabricsId(Long mainFabricsId) {
-		this.mainFabricsId = mainFabricsId;
+	public void setMainFabricId(Long mainFabricId) {
+		this.mainFabricId = mainFabricId;
 	}
 
 	public Long getMainCategoryId() {

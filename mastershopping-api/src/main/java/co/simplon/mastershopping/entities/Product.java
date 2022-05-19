@@ -43,7 +43,7 @@ public class Product {
 
 	@ManyToOne
 	@JoinColumn(name = "fabrics_id")
-	private Fabrics fabrics;
+	private Fabric fabric;
 
 	public Product() {
 
@@ -81,12 +81,12 @@ public class Product {
 		this.price = price;
 	}
 
-	public Fabrics getFabrics() {
-		return fabrics;
+	public Fabric getFabric() {
+		return fabric;
 	}
 
-	public void setFabrics(Fabrics fabrics) {
-		this.fabrics = fabrics;
+	public void setFabric(Fabric fabric) {
+		this.fabric = fabric;
 	}
 
 	public float getNumberStock() {
@@ -125,7 +125,7 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", productName=" + productName + ", pictureUrl=" + pictureUrl + ", price=" + price
 				+ ", numberStock=" + numberStock + ", category=" + category + ", brand=" + brand + ", size=" + size
-				+ ", fabrics=" + fabrics + "]";
+				+ ", fabric=" + fabric + "]";
 	}
 
 }

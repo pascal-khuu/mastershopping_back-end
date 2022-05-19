@@ -6,11 +6,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import co.simplon.mastershopping.entities.Category;
-import co.simplon.mastershopping.entities.Fabrics;
+import co.simplon.mastershopping.entities.Fabric;
 import co.simplon.mastershopping.entities.Size;
 
-public interface FabricsRepository extends JpaRepository<Fabrics, Long> {
+public interface FabricRepository extends JpaRepository<Fabric, Long> {
 
-	Optional<Fabrics> findById(Long mainFabrics);
+	Optional<Fabric> findById(Long mainFabrics);
 
 }

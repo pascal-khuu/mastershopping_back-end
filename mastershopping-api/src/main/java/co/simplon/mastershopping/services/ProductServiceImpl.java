@@ -12,12 +12,12 @@ import co.simplon.mastershopping.dtos.ProductPageUpdate;
 import co.simplon.mastershopping.dtos.ProductUpdate;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
-import co.simplon.mastershopping.entities.Fabrics;
+import co.simplon.mastershopping.entities.Fabric;
 import co.simplon.mastershopping.entities.Product;
 import co.simplon.mastershopping.entities.Size;
 import co.simplon.mastershopping.repositories.BrandRepository;
 import co.simplon.mastershopping.repositories.CategoryRepository;
-import co.simplon.mastershopping.repositories.FabricsRepository;
+import co.simplon.mastershopping.repositories.FabricRepository;
 import co.simplon.mastershopping.repositories.ProductRepository;
 import co.simplon.mastershopping.repositories.SizeRepository;
 
@@ -28,10 +28,10 @@ public class ProductServiceImpl implements ProductService {
 	private final CategoryRepository categories;
 	private final BrandRepository brands;
 	private final SizeRepository sizes;
-	private final FabricsRepository fabrics;
+	private final FabricRepository fabrics;
 
 	public ProductServiceImpl(ProductRepository products, CategoryRepository categories, BrandRepository brands,
-			SizeRepository sizes, FabricsRepository fabrics) {
+			SizeRepository sizes, FabricRepository fabrics) {
 		this.products = products;
 		this.categories = categories;
 		this.brands = brands;
@@ -45,9 +45,9 @@ public class ProductServiceImpl implements ProductService {
 		entity.setProductName(dto.getProductName());
 		entity.setPictureUrl(dto.getPictureUrl());
 		entity.setPrice(dto.getPrice());
-		Long mainFabrics = dto.getMainFabricsId();
-		Fabrics fabric = fabrics.findById(mainFabrics).get();
-		entity.setFabrics(fabric);
+		Long mainFabrics = dto.getMainFabricId();
+		Fabric fabric = fabrics.findById(mainFabrics).get();
+		entity.setFabric(fabric);
 		entity.setNumberStock(dto.getNumberStock());
 		Long mainBrand = dto.getMainBrandId();
 		Brand brand = brands.findById(mainBrand).get();
@@ -79,9 +79,9 @@ public class ProductServiceImpl implements ProductService {
 		entity.setProductName(product.getProductName());
 		entity.setPictureUrl(product.getPicture());
 		entity.setPrice(product.getPrice());
-		Long mainFabrics = product.getMainFabricsId();
-		Fabrics fabric = fabrics.findById(mainFabrics).get();
-		entity.setFabrics(fabric);
+		Long mainFabrics = product.getMainFabricId();
+		Fabric fabric = fabrics.findById(mainFabrics).get();
+		entity.setFabric(fabric);
 		entity.setNumberStock(product.getNumberStock());
 		Long mainBrand = product.getMainBrandId();
 		Brand brand = brands.findById(mainBrand).get();
