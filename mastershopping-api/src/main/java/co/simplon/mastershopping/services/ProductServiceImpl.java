@@ -101,4 +101,9 @@ public class ProductServiceImpl implements ProductService {
 		return products.findAllProjectedBy(ProductPageUpdate.class);
 	}
 
+	@Override
+	public void deleteProductById(Long id) {
+		products.deleteById(id);
+	}
+
 }

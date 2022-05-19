@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,6 +57,12 @@ public class ProductController {
 	@GetMapping("/{id}")
 	public Product updateProductById(@PathVariable("id") Long id) {
 		return service.updateProductById(id);
+
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteProductById(@PathVariable("id") Long id) {
+		service.deleteProductById(id);
 
 	}
 

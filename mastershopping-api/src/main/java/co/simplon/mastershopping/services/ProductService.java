@@ -26,4 +26,6 @@ public interface ProductService {
 
 	List<ProductPageUpdate> getProductUpdate();
 
+	void deleteProductById(Long id);
+
 }
