@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.mastershopping.dtos.ProductCreate;
-import co.simplon.mastershopping.dtos.ProductPageUpdate;
+import co.simplon.mastershopping.dtos.ProductUpdateView;
+import co.simplon.mastershopping.dtos.ProductView;
 import co.simplon.mastershopping.dtos.ProductUpdate;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
@@ -37,14 +38,14 @@ public class ProductController {
 	}
 
 	@GetMapping
-	public List<Product> getProducts() {
+	public List<ProductView> getProducts() {
 
 		return service.getProducts();
 
 	}
 
 	@GetMapping("/viewProductUpdate")
-	public List<ProductPageUpdate> getProductUpdate() {
+	public List<ProductUpdateView> getProductUpdate() {
 		return service.getProductUpdate();
 	}
 

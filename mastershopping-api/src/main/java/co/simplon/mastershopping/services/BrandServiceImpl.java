@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import co.simplon.mastershopping.dtos.BrandView;
+import co.simplon.mastershopping.dtos.ProductUpdateView;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.repositories.BrandRepository;
 
@@ -16,9 +18,10 @@ public class BrandServiceImpl implements BrandService {
 	}
 
 	@Override
-	public List<Brand> getBrands() {
+	public List<BrandView> getBrands() {
 
-		return repository.findAll();
+		return repository.findAllProjectedBy(BrandView.class);
+
 	}
 
 }

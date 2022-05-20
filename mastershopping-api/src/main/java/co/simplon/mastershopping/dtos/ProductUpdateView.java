@@ -2,7 +2,7 @@ package co.simplon.mastershopping.dtos;
 
 import co.simplon.mastershopping.entities.Brand;
 
-public interface ProductPageUpdate {
+public interface ProductUpdateView {
 
 	Long getId();
 

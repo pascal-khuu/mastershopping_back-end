@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import co.simplon.mastershopping.dtos.BrandView;
+import co.simplon.mastershopping.dtos.CategoryView;
 import co.simplon.mastershopping.entities.Category;
 import co.simplon.mastershopping.repositories.CategoryRepository;
 
@@ -17,8 +19,8 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<Category> getCategories() {
+	public List<CategoryView> getCategories() {
 
-		return repository.findAll();
+		return repository.findAllProjectedBy(CategoryView.class);
 	}
 }

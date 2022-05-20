@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import co.simplon.mastershopping.dtos.CategoryView;
+import co.simplon.mastershopping.dtos.FabricView;
 import co.simplon.mastershopping.entities.Fabric;
 import co.simplon.mastershopping.repositories.FabricRepository;
 
@@ -16,8 +18,8 @@ public class FabricServiceImpl implements FabricService {
 	}
 
 	@Override
-	public List<Fabric> getFabrics() {
-		return repository.findAll();
-	}
+	public List<FabricView> getFabrics() {
+		return repository.findAllProjectedBy(FabricView.class);
 
+	}
 }

@@ -7,8 +7,10 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import co.simplon.mastershopping.dtos.FabricView;
 import co.simplon.mastershopping.dtos.ProductCreate;
-import co.simplon.mastershopping.dtos.ProductPageUpdate;
+import co.simplon.mastershopping.dtos.ProductUpdateView;
+import co.simplon.mastershopping.dtos.ProductView;
 import co.simplon.mastershopping.dtos.ProductUpdate;
 import co.simplon.mastershopping.entities.Brand;
 import co.simplon.mastershopping.entities.Category;
@@ -45,8 +47,8 @@ public class ProductServiceImpl implements ProductService {
 		entity.setProductName(dto.getProductName());
 		entity.setPictureUrl(dto.getPictureUrl());
 		entity.setPrice(dto.getPrice());
-		Long mainFabrics = dto.getMainFabricId();
-		Fabric fabric = fabrics.findById(mainFabrics).get();
+		Long mainFabric = dto.getMainFabricId();
+		Fabric fabric = fabrics.findById(mainFabric).get();
 		entity.setFabric(fabric);
 		entity.setNumberStock(dto.getNumberStock());
 		Long mainBrand = dto.getMainBrandId();
@@ -64,8 +66,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getProducts() {
-		return products.findAllByOrderByProductNameAsc();
+	public List<ProductView> getProducts() {
+		return products.findAllProjectedByOrderByProductNameAsc(ProductView.class);
 	}
 
 	@Override
@@ -97,8 +99,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductPageUpdate> getProductUpdate() {
-		return products.findAllProjectedBy(ProductPageUpdate.class);
+	public List<ProductUpdateView> getProductUpdate() {
+		return products.findAllProjectedBy(ProductUpdateView.class);
 	}
 
 	@Override

@@ -8,21 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="BRANDS")
+@Table(name = "BRANDS")
 public class Brand {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	
-	@Column(name="brand_name")
+	private Long id;
+
+	@Column(name = "brand_name")
 	private String brandName;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getBrandName() {
@@ -35,8 +35,7 @@ public class Brand {
 
 	@Override
 	public String toString() {
-		return "Brand [Id=" + Id + ", brandName=" + brandName + "]";
+		return "Brand [id=" + id + ", brandName=" + brandName + "]";
 	}
-	
-	
+
 }

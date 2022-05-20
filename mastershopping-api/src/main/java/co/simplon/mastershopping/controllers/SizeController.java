@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.simplon.mastershopping.dtos.SizeView;
 import co.simplon.mastershopping.entities.Size;
 import co.simplon.mastershopping.services.SizeService;
 
@@ -19,7 +20,7 @@ public class SizeController {
 	}
 
 	@GetMapping
-	public List<Size> getSizes() {
+	public List<SizeView> getSizes() {
 		return service.getSizes();
 	}
 }

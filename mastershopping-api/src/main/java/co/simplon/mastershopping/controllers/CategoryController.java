@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.simplon.mastershopping.dtos.CategoryView;
 import co.simplon.mastershopping.entities.Category;
 import co.simplon.mastershopping.services.CategoryService;
 
@@ -20,7 +21,7 @@ public class CategoryController {
 	}
 
 	@GetMapping
-	public List<Category> getCategories() {
+	public List<CategoryView> getCategories() {
 		return service.getCategories();
 
 	}

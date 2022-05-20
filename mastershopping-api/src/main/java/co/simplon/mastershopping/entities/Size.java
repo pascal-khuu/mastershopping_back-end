@@ -13,17 +13,17 @@ public class Size {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 
 	@Column(name = "size_name")
 	private String sizeName;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getSizeName() {
@@ -36,7 +36,7 @@ public class Size {
 
 	@Override
 	public String toString() {
-		return "Size [Id=" + Id + ", sizeName=" + sizeName + "]";
+		return "Size [id=" + id + ", sizeName=" + sizeName + "]";
 	}
 
 }

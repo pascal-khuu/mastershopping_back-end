@@ -12,17 +12,17 @@ import javax.persistence.Table;
 public class Fabric {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 
 	@Column(name = "fabrics_name")
 	private String fabricName;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getFabricName() {
@@ -35,7 +35,7 @@ public class Fabric {
 
 	@Override
 	public String toString() {
-		return "Fabric [Id=" + Id + ", fabricName=" + fabricName + "]";
+		return "Fabric [id=" + id + ", fabricName=" + fabricName + "]";
 	}
 
 }

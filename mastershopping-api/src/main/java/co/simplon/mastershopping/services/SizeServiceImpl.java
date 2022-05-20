@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import co.simplon.mastershopping.dtos.FabricView;
+import co.simplon.mastershopping.dtos.SizeView;
 import co.simplon.mastershopping.entities.Size;
 import co.simplon.mastershopping.repositories.SizeRepository;
 
@@ -16,8 +18,8 @@ public class SizeServiceImpl implements SizeService {
 	}
 
 	@Override
-	public List<Size> getSizes() {
-		return repository.findAll();
+	public List<SizeView> getSizes() {
+		return repository.findAllProjectedBy(SizeView.class);
 	}
 
 }

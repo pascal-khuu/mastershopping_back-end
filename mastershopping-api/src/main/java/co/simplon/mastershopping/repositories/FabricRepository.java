@@ -13,4 +13,6 @@ public interface FabricRepository extends JpaRepository<Fabric, Long> {
 
 	Optional<Fabric> findById(Long mainFabrics);
 
+	<T> List<T> findAllProjectedBy(Class<T> type);
+
 }
