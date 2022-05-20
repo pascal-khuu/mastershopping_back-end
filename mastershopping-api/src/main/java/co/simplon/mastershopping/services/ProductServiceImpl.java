@@ -103,7 +103,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<ProductUpdateView> getProductUpdate() {
-		return products.findAllProjectedBy(ProductUpdateView.class);
+		return products.findAllProjectedByOrderByProductNameAsc(ProductUpdateView.class);
 	}
 
 	@Transactional
