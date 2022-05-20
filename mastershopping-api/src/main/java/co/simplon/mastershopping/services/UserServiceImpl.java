@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.simplon.mastershopping.dtos.UserCreate;
 import co.simplon.mastershopping.dtos.UserLogin;
@@ -46,6 +47,7 @@ public class UserServiceImpl implements UserService {
 		return provider.create(String.valueOf(user.getId()), roles);
 	}
 
+	@Transactional
 	@Override
 	public void create(UserCreate inputs) {
 		User user = new User();

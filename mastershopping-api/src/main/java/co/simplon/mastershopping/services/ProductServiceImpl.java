@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.simplon.mastershopping.dtos.FabricView;
 import co.simplon.mastershopping.dtos.ProductCreate;
@@ -41,6 +42,7 @@ public class ProductServiceImpl implements ProductService {
 		this.fabrics = fabrics;
 	}
 
+	@Transactional
 	@Override
 	public void createProduct(ProductCreate dto) {
 		Product entity = new Product();
@@ -75,6 +77,7 @@ public class ProductServiceImpl implements ProductService {
 		return products.findById(id).get();
 	}
 
+	@Transactional
 	@Override
 	public void updateProductById(Long id, @Valid ProductUpdate product) {
 		Product entity = products.findById(id).get();
@@ -103,6 +106,7 @@ public class ProductServiceImpl implements ProductService {
 		return products.findAllProjectedBy(ProductUpdateView.class);
 	}
 
+	@Transactional
 	@Override
 	public void deleteProductById(Long id) {
 		products.deleteById(id);
