@@ -29,8 +29,7 @@ public class ProductUpdate {
 	private Long mainSizeId;
 
 	@NotNull
-	@Positive
-	Long mainFabricId;
+	private Long mainFabricId;
 
 	public ProductUpdate() {
 
