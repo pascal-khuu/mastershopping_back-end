@@ -19,7 +19,6 @@ import co.simplon.mastershopping.dtos.UserLogin;
 import co.simplon.mastershopping.entities.User;
 import co.simplon.mastershopping.services.UserService;
 
-//@CrossOrigin("*")
 @RestController
 @RequestMapping("/users")
 public class UserController {

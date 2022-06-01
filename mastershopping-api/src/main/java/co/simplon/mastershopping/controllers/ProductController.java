@@ -26,7 +26,6 @@ import co.simplon.mastershopping.entities.Product;
 import co.simplon.mastershopping.entities.Size;
 import co.simplon.mastershopping.services.ProductService;
 
-//@CrossOrigin("*")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
