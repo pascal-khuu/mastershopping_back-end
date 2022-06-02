@@ -1,3 +1,11 @@
+DROP TABLE If exists products;
+DROP TABLE If exists categories;
+DROP TABLE If exists brands;
+DROP TABLE If exists sizes;
+DROP TABLE If exists fabrics;
+DROP TABLE If exists users;
+DROP TABLE If exists roles;
+
 
 
 
