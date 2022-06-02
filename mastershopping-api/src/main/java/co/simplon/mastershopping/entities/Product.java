@@ -24,10 +24,10 @@ public class Product {
 	private String pictureUrl;
 
 	@Column(name = "price")
-	private float price;
+	private double price;
 
 	@Column(name = "number_stock")
-	private float numberStock;
+	private int numberStock;
 
 	@ManyToOne
 	@JoinColumn(name = "categories_id")
@@ -73,11 +73,11 @@ public class Product {
 		this.pictureUrl = pictureUrl;
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -89,11 +89,11 @@ public class Product {
 		this.fabric = fabric;
 	}
 
-	public float getNumberStock() {
+	public int getNumberStock() {
 		return numberStock;
 	}
 
-	public void setNumberStock(float numberStock) {
+	public void setNumberStock(int numberStock) {
 		this.numberStock = numberStock;
 	}
 

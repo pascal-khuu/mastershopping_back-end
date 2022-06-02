@@ -14,14 +14,14 @@ public class ProductCreate {
 
 	@NotNull
 	@Positive
-	private Float price;
+	private Double price;
 
 	@NotNull
 	private Long mainFabricId;
 
 	@NotNull
 	@Positive
-	private Float numberStock;
+	private int numberStock;
 
 	@NotNull
 	private Long mainCategoryId;
@@ -52,11 +52,11 @@ public class ProductCreate {
 		this.pictureUrl = pictureUrl;
 	}
 
-	public Float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
@@ -92,11 +92,11 @@ public class ProductCreate {
 		this.mainSizeId = mainSizeId;
 	}
 
-	public Float getNumberStock() {
+	public int getNumberStock() {
 		return numberStock;
 	}
 
-	public void setNumberStock(Float numberStock) {
+	public void setNumberStock(int numberStock) {
 		this.numberStock = numberStock;
 	}
 

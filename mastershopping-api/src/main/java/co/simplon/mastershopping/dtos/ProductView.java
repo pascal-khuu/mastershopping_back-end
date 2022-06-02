@@ -21,8 +21,8 @@ public interface ProductView {
 
 	Category getCategory();
 
-	float getPrice();
+	int getPrice();
 
-	float getNumberStock();
+	double getNumberStock();
 
 }

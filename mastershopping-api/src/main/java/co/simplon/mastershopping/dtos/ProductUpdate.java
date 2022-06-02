@@ -5,19 +5,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 public class ProductUpdate {
-	String picture;
+	private String picture;
 
 	@NotNull
 	@NotBlank
-	String productName;
+	private String productName;
 
 	@NotNull
 	@Positive
-	Float price;
+	private Double price;
 
 	@NotNull
 	@Positive
-	Float numberStock;
+	private int numberStock;
 
 	@NotNull
 	private Long mainCategoryId;
@@ -51,11 +51,11 @@ public class ProductUpdate {
 		this.picture = picture;
 	}
 
-	public Float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
@@ -91,11 +91,11 @@ public class ProductUpdate {
 		this.mainSizeId = mainSizeId;
 	}
 
-	public Float getNumberStock() {
+	public int getNumberStock() {
 		return numberStock;
 	}
 
-	public void setNumberStock(Float numberStock) {
+	public void setNumberStock(int numberStock) {
 		this.numberStock = numberStock;
 	}
 

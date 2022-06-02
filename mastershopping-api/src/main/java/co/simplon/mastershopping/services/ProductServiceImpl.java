@@ -49,22 +49,16 @@ public class ProductServiceImpl implements ProductService {
 		entity.setProductName(dto.getProductName());
 		entity.setPictureUrl(dto.getPictureUrl());
 		entity.setPrice(dto.getPrice());
-		Long mainFabric = dto.getMainFabricId();
-		Fabric fabric = fabrics.findById(mainFabric).get();
+		Fabric fabric = fabrics.getById(dto.getMainFabricId());
 		entity.setFabric(fabric);
 		entity.setNumberStock(dto.getNumberStock());
-		Long mainBrand = dto.getMainBrandId();
-		Brand brand = brands.findById(mainBrand).get();
+		Brand brand = brands.getById(dto.getMainBrandId());
 		entity.setBrand(brand);
-		Long mainSize = dto.getMainSizeId();
-		Size size = sizes.findById(mainSize).get();
+		Size size = sizes.getById(dto.getMainSizeId());
 		entity.setSize(size);
-		Long mainCategory = dto.getMainCategoryId();
-		Category category = categories.findById(mainCategory).get();
+		Category category = categories.getById(dto.getMainCategoryId());
 		entity.setCategory(category);
-
 		products.save(entity);
-
 	}
 
 	@Override
@@ -84,18 +78,14 @@ public class ProductServiceImpl implements ProductService {
 		entity.setProductName(product.getProductName());
 		entity.setPictureUrl(product.getPicture());
 		entity.setPrice(product.getPrice());
-		Long mainFabrics = product.getMainFabricId();
-		Fabric fabric = fabrics.findById(mainFabrics).get();
+		Fabric fabric = fabrics.getById(product.getMainFabricId());
 		entity.setFabric(fabric);
 		entity.setNumberStock(product.getNumberStock());
-		Long mainBrand = product.getMainBrandId();
-		Brand brand = brands.findById(mainBrand).get();
+		Brand brand = brands.getById(product.getMainBrandId());
 		entity.setBrand(brand);
-		Long mainSize = product.getMainSizeId();
-		Size size = sizes.findById(mainSize).get();
+		Size size = sizes.getById(product.getMainSizeId());
 		entity.setSize(size);
-		Long mainCategory = product.getMainCategoryId();
-		Category category = categories.findById(mainCategory).get();
+		Category category = categories.getById(product.getMainCategoryId());
 		entity.setCategory(category);
 		products.save(entity);
 
