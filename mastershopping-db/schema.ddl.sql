@@ -35,7 +35,7 @@ CREATE TABLE fabrics (
 CREATE TABLE products (
 	id SERIAL PRIMARY KEY,
 	product_name VARCHAR (255) UNIQUE NOT NULL,
-	picture_url VARCHAR (255),
+	picture_url VARCHAR (255)NOT NULL,
 	price FLOAT NOT NULL,
 	number_stock INTEGER NOT NULL,
 	categories_id INTEGER NOT NULL,
