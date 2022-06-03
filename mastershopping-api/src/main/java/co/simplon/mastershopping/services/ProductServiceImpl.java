@@ -76,7 +76,7 @@ public class ProductServiceImpl implements ProductService {
 	public void updateProductById(Long id, @Valid ProductUpdate product) {
 		Product entity = products.findById(id).get();
 		entity.setProductName(product.getProductName());
-		entity.setPictureUrl(product.getPicture());
+		entity.setPictureUrl(product.getPictureUrl());
 		entity.setPrice(product.getPrice());
 		Fabric fabric = fabrics.getById(product.getMainFabricId());
 		entity.setFabric(fabric);

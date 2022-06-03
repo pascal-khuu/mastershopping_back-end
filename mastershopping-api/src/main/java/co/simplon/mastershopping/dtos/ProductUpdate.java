@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 public class ProductUpdate {
-	private String picture;
 
 	@NotNull
 	@NotBlank
@@ -14,6 +13,10 @@ public class ProductUpdate {
 	@NotNull
 	@Positive
 	private Double price;
+
+	@NotNull
+	@NotBlank
+	private String pictureUrl;
 
 	@NotNull
 	@Positive
@@ -43,12 +46,12 @@ public class ProductUpdate {
 		this.productName = productName;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getPictureUrl() {
+		return pictureUrl;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 	public Double getPrice() {
