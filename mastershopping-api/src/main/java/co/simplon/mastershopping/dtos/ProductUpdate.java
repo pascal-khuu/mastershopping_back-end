@@ -11,14 +11,13 @@ public class ProductUpdate {
 	private String productName;
 
 	@NotNull
-	@Positive
-	private Double price;
-
-	@NotNull
 	@NotBlank
 	private String pictureUrl;
 
 	@NotNull
+	@Positive
+	private Double price;
+
 	@Positive
 	private int numberStock;
 

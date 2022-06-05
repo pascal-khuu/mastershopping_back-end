@@ -6,11 +6,13 @@ import javax.validation.constraints.Positive;
 
 public class ProductCreate {
 
-	String pictureUrl;
-
 	@NotNull
 	@NotBlank
 	private String productName;
+
+	@NotNull
+	@NotBlank
+	String pictureUrl;
 
 	@NotNull
 	@Positive
@@ -19,7 +21,6 @@ public class ProductCreate {
 	@NotNull
 	private Long mainFabricId;
 
-	@NotNull
 	@Positive
 	private int numberStock;
 
