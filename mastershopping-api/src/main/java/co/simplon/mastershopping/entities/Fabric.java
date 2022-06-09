@@ -14,7 +14,7 @@ public class Fabric {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "fabrics_name")
+	@Column(name = "fabric_name")
 	private String fabricName;
 
 	public Long getId() {
