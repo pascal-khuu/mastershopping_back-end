@@ -21,7 +21,7 @@ public interface ProductService {
 
 	void createProduct(ProductCreate product);
 
-	Product updateProductById(Long id);
+	Product getProductById(Long id);
 
 	void updateProductById(Long id, @Valid ProductUpdate product);
 

@@ -38,14 +38,17 @@ public class ProductController {
 
 	@GetMapping
 	public List<ProductView> getProducts() {
-
 		return service.getProducts();
-
 	}
 
 	@GetMapping("/viewProductUpdate")
 	public List<ProductUpdateView> getProductUpdate() {
 		return service.getProductUpdate();
+	}
+
+	@GetMapping("/{id}")
+	public Product getProductById(@PathVariable("id") Long id) {
+		return service.getProductById(id);
 	}
 
 	@PostMapping
@@ -54,21 +57,15 @@ public class ProductController {
 		service.createProduct(product);
 	}
 
-	@GetMapping("/{id}")
-	public Product updateProductById(@PathVariable("id") Long id) {
-		return service.updateProductById(id);
-
+	@PutMapping("/{id}")
+	public void updateProduct(@PathVariable Long id, @Valid @RequestBody ProductUpdate product) {
+		service.updateProductById(id, product);
 	}
 
 	@DeleteMapping("/{id}")
 	public void deleteProductById(@PathVariable("id") Long id) {
 		service.deleteProductById(id);
 
-	}
-
-	@PutMapping("/{id}")
-	public void updateProduct(@PathVariable Long id, @Valid @RequestBody ProductUpdate product) {
-		service.updateProductById(id, product);
 	}
 
 }
