@@ -28,7 +28,7 @@ CREATE TABLE sizes (
 
 CREATE TABLE fabrics (
 	id SERIAL PRIMARY KEY,
-	fabrics_name VARCHAR (255) UNIQUE NOT NULL
+	fabric_name VARCHAR (255) UNIQUE NOT NULL
 );
 
 

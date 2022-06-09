@@ -1,7 +1,7 @@
 INSERT INTO CATEGORIES (category_name) values ('Pantalon'), ('Jeans'),('T-shirt'),('Echarpe'),('Chapeau'),('Bonnet');
 INSERT INTO BRANDS (brand_name) values ('ZARA'), ('TIMBERLAND'),('COACH'),('MICHAEL KORS'),('GIVENCHY');
 INSERT INTO SIZES (size_name) values ('S'),('XS'),('M'),('L'),('XL'),('XXL');
-INSERT INTO FABRICS (fabrics_name) values ('Coton'), ('Laine'),('Soie'), ('Paille');
+INSERT INTO FABRICS (fabric_name) values ('Coton'), ('Laine'),('Soie'), ('Paille');
 
 INSERT INTO PRODUCTS (product_name,picture_url,price,number_stock,categories_id,brands_id,sizes_id, fabrics_id)
 values ('Jean de Lorrenzo','assets/products/Jeans.png',50.00,5,2,1,1,1),
