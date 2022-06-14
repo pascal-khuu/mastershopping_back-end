@@ -64,7 +64,7 @@ CREATE TABLE roles (
 
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
-	user_name VARCHAR (255) NOT NULL,
+	user_name VARCHAR (255) UNIQUE NOT NULL,
 	first_name VARCHAR (255) NOT NULL,
 	last_name VARCHAR(255) NOT NULL,
 	password VARCHAR(60) NOT NULL,
